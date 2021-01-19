@@ -28,11 +28,14 @@ import random
 app = Flask(__name__)
 
 # LINE 聊天機器人的基本資料
-config = configparser.ConfigParser()
-config.read('config.ini')
+# config = configparser.ConfigParser()
+# config.read('config.ini')
 
-line_bot_api = LineBotApi(config.get('line-bot', 'channel_access_token'))
-handler = WebhookHandler(config.get('line-bot', 'channel_secret'))
+# line_bot_api = LineBotApi(config.get('line-bot', 'channel_access_token'))
+# handler = WebhookHandler(config.get('line-bot', 'channel_secret'))
+
+channel_access_token = process.env.channel_access_token
+channel_secret = process.env.channel_secret
 
 
 # 接收 LINE 的資訊
